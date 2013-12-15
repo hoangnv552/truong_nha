@@ -1,0 +1,115 @@
+*** Settings ***
+Library       		Selenium2Library
+
+*** Variables ***
+${LOGIN ADDRESS}	http://truongnha.com/login/
+${BROWSER}		ff
+${HOME}			http://truongnha.com
+${WELCOME PAGE}		${HOME}/school/
+${CLASS PAGE}		${HOME}/school/classes
+${CLASS CHOOSE PAGE}	${HOME}/school/viewClassDetail/1416
+${ADD STUDENT PAGE}	${HOME}/school/viewClassDetail/1416#
+
+*** Keywords ***
+Open Login Page
+	Open Browser  ${LOGIN ADDRESS}  ${BROWSER}
+	Maximize Browser Window
+	
+Input Username  [Arguments]  ${username}
+    Input Text  id_username  ${username}
+
+Input Password  [Arguments]  ${password}
+    Input Text  id_password  ${password}
+
+Submit Login
+	Click Button  login
+	
+Login is Successful
+	Location Should Be 	${WELCOME PAGE}
+
+Login
+	Open Browser  ${LOGIN ADDRESS}  ${BROWSER}
+	Maximize Browser Window
+	Input Text  id_username	nhom11
+	Input Text  id_password	nhom11
+	Click Button  login
+	Location Should Be 	${WELCOME PAGE}
+
+Go To Home Page
+	Go To	${WELCOME PAGE}
+	
+Select Classes
+	Click Link 	/school/classes
+	Location Should Be	${CLASS PAGE}
+
+Select Class Test
+	Click Link	/school/viewClassDetail/1416
+	Location Should Be	${CLASS CHOOSE PAGE}
+
+Select List Menu
+	Click Link	student-list-menu
+	
+Select Add Student
+	Click Link 	add-student
+	Location Should Be	${ADD STUDENT PAGE}
+
+Input student lastname	[Arguments]  ${lastname}
+	Input Text	id_last_name		${lastname}
+	
+Wrong student lastname
+	Alert Should Be Present	Họ học sinh chỉ được bắt đầu bằng chữ, ví dụ Nguyễn, Phan...
+
+Input student firstname	[Arguments]  ${firstname}
+	Input Text	id_first_name		${firstname}
+	
+Wrong student firstname
+	Alert Should Be Present	Tên học sinh chỉ được bắt đầu bằng chữ, ví dụ Anh,Huy...
+
+Input birthday	[Arguments]  ${birthday}
+	Input Text	id_birthday		${birthday}
+
+Wrong birthday1
+	Alert Should Be Present Ngày chỉ từ 1 đến 31
+
+Wrong birthday2
+	Alert Should Be Present Tháng chỉ từ 1 đến 12
+
+Wrong birthday3
+	Alert Should Be Present Ngày chỉ từ 1950 đến 1992
+
+Input phone number	[Arguments]  ${phonenumber}
+	Input Text	id_sms_phone		${phonenumber}
+
+Wrong phone number
+	Alert Should Be Present Số điện thoại phải là một chuỗi số có 10 hoặc 11 số. Ví dụ: 01234567890, 0973456789...
+
+Select from list Nam
+	Select From List	id_sex	 Nam
+
+Select from list Nu
+	Select From List	id_sex	 Nữ
+
+Input dan toc	[Arguments]  ${dantoc}
+	Input Text	id_dan_toc		${dantoc}
+
+Input dia chi	[Arguments]  ${diachi}
+	Input Text	id_current_address		${diachi}
+
+Input father name	[Arguments]  ${fname}
+	Input Text	id_father_name		${fname}
+
+Input mother name	[Arguments]  ${motherName}
+	Input Text	id_mother_name		${motherName}
+
+Input birth place	[Arguments]  ${birthPlace}
+	Input Text	id_birth_place		${birthPlace}
+
+Click Button AddStudent
+	Click Button	add-student-submit
+
+Create is Successful
+	Location Should Be 	${CLASS PAGE}	
+
+Button ADD Disabled
+	Element Should Be Disabled	add-student-submit
+	

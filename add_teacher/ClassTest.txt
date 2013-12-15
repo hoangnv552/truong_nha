@@ -1,0 +1,76 @@
+*** Settings ***
+
+Resource	Keyword.txt
+
+*** Testcases ***
+Login Should Succeed When the Correct Username and Password are Entered
+	Login
+	
+Test case 1, add a new teacher
+	Go To Home Page
+	Select Teachers
+	Select List Menu
+	Select Add Teachers
+	Input teacher name	Nguyễn Thế Anh
+	Input birthday	05/05/1992
+	Input phone number	01677260799
+	Select from list Nam
+	Select from list Toan
+	Select from list teamToan
+	Click Button AddTeacher
+	Create is Successful
+
+Test case 2, add a new teacher
+	Go To Home Page
+	Select Teachers
+	Select List Menu
+	Select Add Teachers
+	Input teacher name	Nguyễn Tiến Đạt
+	Input birthday	05/05/1992
+	Input phone number	01677260799
+	Select from list Nam
+	Select from list Toan
+	Select from list teamAnh
+	Click Button AddTeacher
+	Create is Successful
+
+Test case 3, add a new teacher
+	Go To Home Page
+	Select Teachers
+	Select List Menu
+	Select Add Teachers
+	Input teacher name	35Nguyen The Anh
+	Input birthday	05/05/1992
+	Input phone number	01677260799
+	Select from list Nam
+	Select from list Toan
+	Select from list teamAnh
+	Click Button AddTeacher
+	Create is Successful
+
+Test case 4, add a new teacher
+	Go To Home Page
+	Select Teachers
+	Select List Menu
+	Select Add Teachers
+	Input teacher name	Nguyễn Văn A
+	Input birthday	29/02/1992
+	Input phone number	01677260799
+	Select from list Nam
+	Select from list Li
+	Select from list teamAnh
+	Click Button AddTeacher
+	Create is Successful
+
+Test case 5, add a new teacher
+	Go To Home Page
+	Select Teachers
+	Select List Menu
+	Select Add Teachers
+	Input teacher name	Phan Văn Đại
+	Input phone number	016772607999
+	Select from list Nam
+	Select from list Toan
+	Select from list teamAnh
+	Click Button AddTeacher
+	Create is Successful	
