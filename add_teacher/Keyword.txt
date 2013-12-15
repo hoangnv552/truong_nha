@@ -1,0 +1,159 @@
+*** Settings ***
+Library       		Selenium2Library
+
+
+*** Variables ***
+${LOGIN ADDRESS}	http://truongnha.com/login/
+${BROWSER}		ff
+${HOME}			http://truongnha.com
+${WELCOME PAGE}		${HOME}/school/
+${TEACHERS PAGE}	${HOME}/school/teachers
+${ADD TEACHERS PAGE}	${HOME}/school/teachers#add-teacher-div
+
+*** Keywords ***
+Open Login Page
+	Open Browser  ${LOGIN ADDRESS}  ${BROWSER}
+	Maximize Browser Window
+	
+Input Username  [Arguments]  ${username}
+    Input Text  id_username  ${username}
+
+Input Password  [Arguments]  ${password}
+    Input Text  id_password  ${password}
+
+Submit Login
+	Click Button  login
+	
+Login is Successful
+	Location Should Be 	${WELCOME PAGE}
+
+Login
+	Open Browser  ${LOGIN ADDRESS}  ${BROWSER}
+	Maximize Browser Window
+	Input Text  id_username	nhom11
+	Input Text  id_password	nhom11
+	Click Button  login
+	Location Should Be 	${WELCOME PAGE}
+
+Go To Home Page
+	Go To	${WELCOME PAGE}
+	
+
+Select Teachers
+	Click Link 	teachers
+	Location Should Be	${TEACHERS PAGE}
+
+Select List Menu
+	Click Link	teacher-list-menu
+	
+Select Add Teachers
+	Click Link 	add-teacher
+	Location Should Be	${ADD TEACHERS PAGE}
+
+Input teacher name	[Arguments]  ${username}
+	Input Text	id_first_name		${username}
+	
+Wrong teacher name
+	Alert Should Be Present	Tên giáo viên chỉ được bắt đầu bằng chữ, ví dụ Nguyễn, Phan...
+
+Input birthday	[Arguments]  ${birthday}
+	Input Text	id_birthday		${birthday}
+
+Wrong birthday1
+	Alert Should Be Present Ngày chỉ từ 1 đến 31
+
+Wrong birthday2
+	Alert Should Be Present Tháng chỉ từ 1 đến 12
+
+Wrong birthday3
+	Alert Should Be Present Ngày chỉ từ 1950 đến 1992
+
+Input phone number	[Arguments]  ${phonenumber}
+	Input Text	id_sms_phone		${phonenumber}
+
+Wrong phone number
+	Alert Should Be Present Số điện thoại phải là một chuỗi số có 10 hoặc 11 số. Ví dụ: 01234567890, 0973456789...
+
+Select from list Nam
+	Select From List	id_sex	 Nam
+
+Select from list Nu
+	Select From List	id_sex	 Nữ
+	
+Select from list Toan
+	Select From List	id_major	Toán
+
+Select from list Li
+	Select From List	id_major	Vật Lí
+
+Select from list Hoa
+	Select From List	id_major	Hóa học
+
+Select from list Sinh
+	Select From List	id_major	Sinh học
+
+Select from list Van
+	Select From List	id_major	Ngữ văn
+
+Select from list Su
+	Select From List	id_major	Lịch sử
+
+Select from list Dia
+	Select From List	id_major	Địa lí
+
+Select from list Anh
+	Select From List	id_major	Ngoại ngữ
+
+Select from list GDCD
+	Select From List	id_major	GDCD
+
+Select from list CongNghe
+	Select From List	id_major	Công nghệ
+
+Select from list TD
+	Select From List	id_major	Thể dục
+
+Select from list Nhac
+	Select From List	id_major	Âm nhạc
+
+Select from list Ve
+	Select From List	id_major	Mĩ thuật
+
+Select from list NN2
+	Select From List	id_major	NN2
+
+Select from list Tin
+	Select From List	id_major	Tin học
+
+Select from list QP
+	Select From List	id_major	GDQP-AN
+
+Select from list Tuchon
+	Select From List	id_major	Tự chọn
+
+	
+Select from list teamToan
+	Select From List	id_team_id	395
+
+Select from list teamAnh
+	Select From List	id_team_id	397
+
+
+
+
+Err duplicate Teacher
+	Page Should Contain Element		xpath=//ul[contains(@class,'errorlist')]/li[text()='Giáo viên đã tồn tại']
+
+Err duplicate Phone
+	Page Should Contain Element		xpath=//ul[contains(@class,'errorlist')]/li[text()='Số điện thoại đã được sử dụng']
+
+Click Button AddTeacher
+	Click Button	submitaddTeacher
+	
+
+Create is Successful
+	Location Should Be 	${TEACHERS PAGE}	
+
+Button ADD Disabled
+	Element Should Be Disabled	submitaddTeacher
+	

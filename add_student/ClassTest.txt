@@ -1,0 +1,146 @@
+*** Settings ***
+
+Resource	Keyword.txt
+
+*** Testcases ***	
+Login Should Succeed When the Correct Username and Password are Entered
+	Login
+
+Test case 1, add a new student
+	Go To Home Page
+	Select Classes
+	Select Class Test
+	Select List Menu
+	Select Add Student
+	Input student lastname	Nguyễn 
+	Input student firstname	Tiến Đạt 
+	Input birthday	23/02/1992
+	Input phone number	01677260799
+	Select from list Nam
+	Input dan toc	Kinh
+	Input dia chi	Hà Nội
+	Input father name	Bố
+	Input mother name	Mẹ
+	Input birth place	Hà Nội
+	Click Button AddStudent
+	Create is Successful
+
+Test case 2, add a new student
+	Go To Home Page
+	Select Classes
+	Select Class Test
+	Select List Menu
+	Select Add Student
+	Input student lastname	6Nguyen 
+	Input student firstname  6Anh
+	Input birthday	05/05/1992
+	Input phone number	01679860412
+	Select from list Nu
+	Input dan toc	Kinh
+	Input dia chi	Hà Nội
+	Input father name	Bố
+	Input mother name	Mẹ
+	Input birth place	Hà Nội
+	Click Button AddStudent
+	Create is Successful
+
+Test case 3, add a new student
+	Go To Home Page
+	Select Classes
+	Select Class Test
+	Select List Menu
+	Select Add Student
+	Input student lastname	Phan 
+	Input student firstname  Văn Đại
+	Input birthday	29/02/1992
+	Input phone number	01679860412
+	Select from list Nu
+	Input dan toc	Kinh
+	Input dia chi	Hà Nội
+	Input father name	Bố
+	Input mother name	Mẹ
+	Input birth place	Hà Nội
+	Click Button AddStudent
+	Create is Successful
+
+Test case 4, add a new student
+	Go To Home Page
+	Select Classes
+	Select Class Test
+	Select List Menu
+	Select Add Student
+	Input student lastname	Nguyễn 
+	Input student firstname	Tiến Đạt 
+	Input birthday	20/02/1992
+	Input phone number	01677256790
+	Select from list Nam
+	Input dan toc	Kinh
+	Input dia chi	Hà Nội
+	Input father name	Bố
+	Input mother name	Mẹ
+	Input birth place	Hà Nội
+	Click Button AddStudent
+	Create is Successful
+
+Test case 5, add a new student
+	Go To Home Page
+	Select Classes
+	Select Class Test
+	Select List Menu
+	Select Add Student
+	Input student lastname	Nguyễn 
+	Input student firstname	Tiến Đạt 
+	Input birthday	20/02/1992
+	Input phone number	01677206780
+	Select from list Nam
+	Input dan toc	Kinh
+	Input dia chi	Hà Nội
+	Input father name	Bố
+	Input mother name	Mẹ
+	Input birth place	Hà Nội
+	Click Button AddStudent
+	Create is Successful
+
+Test case 6, add a new student
+	Go To Home Page
+	Select Classes
+	Select Class Test
+	Select List Menu
+	Select Add Student
+	Input student lastname	@3545
+	Input student firstname  abc
+	Input birthday	04/12/1992
+	Input phone number	01679860465
+	Select from list Nu
+	Input dan toc	Kinh
+	Input dia chi	Ha Noi
+	Input father name	Bo
+	Input mother name	Me
+	Input birth place	Ha Noi
+	Click Button AddStudent
+	Create is Successful
+
+Test case 7, add a new student
+	Go To Home Page
+	Select Classes
+	Select Class Test
+	Select List Menu
+	Select Add Student
+	Input student lastname	Nông 
+	Input student firstname  Văn Hoàng
+	Input birthday	04/12/1992
+	Input phone number	1679860412
+	Select from list Nam
+	Input dan toc	Kinh
+	Input dia chi	Hà Nội
+	Input father name	Bố
+	Input mother name	Mẹ
+	Input birth place	Hà Nội
+	
+	Click Button AddStudent
+	Create is Successful
+
+
+
+	
+
