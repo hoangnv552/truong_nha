@@ -1,0 +1,25 @@
+Robotframework setup on linux + ride + seleniumlibrary
+
+Ubuntu – 12.04, LinuxMint – 13	
+# Python package management tool pip.
+sudo apt-get install python2.7-dev
+sudo apt-get install python-setuptools
+sudo apt-get install python-pip
+ 
+# wxPython
+sudo apt-get install python-wxgtk2.8
+sudo apt-get install python-wxversion
+ 
+# Setting up actual robotframework + ide + selenium library.
+sudo pip install robotframework
+sudo pip install robotframework-ride
+sudo pip install robotframework-seleniumlibrary
+ 
+# Some other goodies
+sudo pip install robotframework-databaselibrary
+sudo apt-get install libmysqlclient-dev
+sudo pip install MySQL-python
+sudo apt-get install openjdk-7-jdk
+
+# installing selenium2library
+pip install robotframework-selenium2library
